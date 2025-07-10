@@ -1,71 +1,75 @@
 # 📈 Stock Price Prediction
 
-This project aims to predict the future stock prices of **Apple Inc. (AAPL)** using historical stock data. The project leverages **Long Short-Term Memory (LSTM)** networks to forecast future prices based on previous data, using technical analysis indicators such as **Moving Averages**, **RSI**, and **Bollinger Bands**.
-
----
+This project aims to predict the future stock prices of **Apple Inc. (AAPL)** using historical stock data. The project leverages **Long Short-Term Memory (LSTM)** networks to forecast future prices based on previous data, using technical analysis indicators such as Moving Averages, RSI, and Bollinger Bands.
 
 ## 📁 Dataset
 
-The dataset used is historical stock data fetched from **Yahoo Finance** using the **yfinance** library:
-- `AAPL` (Apple Inc.) stock data from **2010-01-01 to 2021-12-31**.
-- Features used: `Open`, `High`, `Low`, `Close`, `Volume`.
+The dataset used is historical stock data fetched from Yahoo Finance using the `yfinance` library:
 
----
+- **AAPL (Apple Inc.)** stock data from 2010-01-01 to 2021-12-31.
+- **Features used**: Open, High, Low, Close, Volume.
 
 ## 📊 Technologies Used
 
-- **Python** 🐍
-- **Jupyter Notebook**
-- **Pandas**, **NumPy**
-- **Matplotlib**, **Seaborn** (Data Visualization)
-- **Scikit-learn** (Modeling)
-- **TensorFlow / Keras** (LSTM Model)
-- **TA-Lib / ta** (Technical Analysis Indicators)
-
----
+- **Python 🐍**: The main programming language used for data manipulation, model building, and evaluation.
+- **Jupyter Notebook**: Used for interactive development and visualization.
+- **Pandas**: A powerful data manipulation library used to handle and clean data.
+- **NumPy**: Used for numerical operations and array manipulations.
+- **Matplotlib** & **Seaborn**: Libraries for data visualization, used for plotting graphs and charts.
+- **Scikit-learn**: Used for feature scaling and splitting data into training and testing sets.
+- **TensorFlow / Keras**: Used to build the **LSTM model** for time-series forecasting.
+- **TA-Lib / ta**: Libraries for technical analysis indicators such as RSI, Bollinger Bands, and Moving Averages.
 
 ## ✅ Project Steps
 
-### 1. **Data Collection**
-- Download historical stock data using the **yfinance** library.
-- Preprocess and clean the data (handling missing values, scaling features).
+### 1. Data Collection
 
-### 2. **Feature Engineering**
-- Add **technical indicators** like **RSI**, **Bollinger Bands**, and **SMA** (Simple Moving Averages).
-- Normalize the data using **MinMaxScaler**.
+- **yfinance**: The dataset is downloaded using the `yfinance` library, which fetches historical stock data from Yahoo Finance.
+- The historical stock data includes the following features: `Open`, `High`, `Low`, `Close`, and `Volume`.
+- The data is cleaned and preprocessed by handling missing values and scaling the features using **MinMaxScaler** from Scikit-learn.
 
-### 3. **Model Building & Training**
-- Built an **LSTM model** for time-series forecasting.
-- Trained the model using previous stock prices and technical indicators.
+### 2. Feature Engineering
 
-### 4. **Prediction**
-- Used the trained model to predict future stock prices.
-- Plotted the predicted vs actual stock prices.
+- **Technical Indicators**: The following technical analysis indicators are added to the dataset:
+  - **Relative Strength Index (RSI)**: A momentum oscillator that measures the speed and change of price movements.
+  - **Bollinger Bands**: A volatility indicator consisting of a middle band (SMA), upper band, and lower band. The bands widen or contract based on volatility.
+  - **Simple Moving Averages (SMA)**: A moving average of the stock prices over a specific period. The project uses both short-term and long-term moving averages.
+  
+- **Normalization**: The data is normalized using the **MinMaxScaler** to scale the features into a range of 0 to 1, making it suitable for the LSTM model.
 
-### 5. **Visualization**
-- Visualized the actual vs predicted stock prices.
-- Plotted **Bollinger Bands**, **RSI**, and **Moving Averages** to enhance the understanding of stock price behavior.
+### 3. Model Building & Training
 
----
+- **LSTM Model**: The project uses a **Long Short-Term Memory (LSTM)** neural network, which is well-suited for time-series forecasting problems.
+  - The LSTM model takes sequences of previous stock prices and technical indicators to predict future stock prices.
+  - The data is split into training and test sets, and the model is trained on the training set.
+  
+- **Model Training**: The LSTM model is trained on the past stock prices and technical indicators, and the training process is optimized using **Adam** optimizer.
+
+### 4. Prediction
+
+- **Stock Price Prediction**: Once trained, the LSTM model predicts the future stock prices. The model is evaluated by comparing the predicted stock prices with the actual stock prices.
+
+### 5. Visualization
+
+- **Actual vs Predicted Stock Prices**: Visualized the comparison between the predicted and actual stock prices to evaluate the performance of the LSTM model.
+- **Bollinger Bands**: Plotted the upper and lower Bollinger Bands along with the stock price to show the volatility.
+- **RSI**: Visualized the RSI to understand overbought or oversold conditions.
+- **Moving Averages**: Plotted the short-term and long-term moving averages on top of the stock prices to observe the trends.
 
 ## 📈 Model Performance
 
-### LSTM Model:
-- **Performance Metric**: Evaluated based on accuracy and prediction error.
-- **Predicted vs Actual Stock Prices**: The model's predictions are compared with actual stock prices to measure accuracy.
-
----
+- **LSTM Model**:
+  - **Performance Metric**: The model's performance is evaluated based on prediction accuracy and error metrics.
+  - **Predicted vs Actual Stock Prices**: The predicted stock prices from the LSTM model are compared with the actual stock prices. The accuracy and error metrics help assess how well the model performs.
 
 ## 📂 Files in this Repo
 
-| File                     | Description                                |
-|--------------------------|--------------------------------------------|
-| `stock_price_prediction.ipynb`    | Main Jupyter notebook with code & plots    |
-| `predicted_stock_prices.csv` | Final predicted stock prices for the test set|
-| `train.csv`              | Historical stock data from Yahoo Finance   |
-| `test.csv`               | Test dataset for stock price prediction   |
-
----
+| File                            | Description                                                                |
+|----------------------------------|----------------------------------------------------------------------------|
+| `stock_price_prediction.ipynb`   | Main Jupyter notebook with code & plots for data analysis and model building. |
+| `predicted_stock_prices.csv`     | Final predicted stock prices for the test set generated by the LSTM model.  |
+| `train.csv`                      | Historical stock data from Yahoo Finance for training the model.            |
+| `test.csv`                       | Test dataset used for evaluating the model's performance.                   |
 
 ## ✍️ Author
 
@@ -73,11 +77,57 @@ The dataset used is historical stock data fetched from **Yahoo Finance** using t
 Data Science Intern – July 2025  
 Arch Technologies
 
----
-
 ## 📧 Contact
 
-For technical issues or feedback:  
+For technical issues or feedback, please contact:  
 📩 **fawada8110@gmail.com**
 
 ---
+
+## 🧑‍💻 Libraries Explanation
+
+### **yfinance**:
+- **Purpose**: Fetches historical stock data directly from Yahoo Finance.
+- **Usage**: Download the stock data for AAPL from 2010 to 2021.
+
+### **Pandas**:
+- **Purpose**: Data manipulation and cleaning.
+- **Usage**: Used to load, clean, and preprocess stock data. It also helps to structure the data for model input.
+
+### **NumPy**:
+- **Purpose**: Used for numerical calculations and array operations.
+- **Usage**: Works alongside Pandas for data manipulation and handling multidimensional arrays.
+
+### **Matplotlib & Seaborn**:
+- **Purpose**: Visualization of data.
+- **Usage**: Plotted the stock prices, moving averages, Bollinger Bands, RSI, and predicted vs actual values for performance evaluation.
+
+### **Scikit-learn**:
+- **Purpose**: Provides tools for machine learning and data preprocessing.
+- **Usage**: Used for scaling features using **MinMaxScaler** and splitting the dataset into training and test sets.
+
+### **TensorFlow / Keras**:
+- **Purpose**: Deep learning framework used to build the LSTM model.
+- **Usage**: LSTM is built using Keras (a high-level API in TensorFlow) for time-series prediction.
+
+### **TA-Lib / ta**:
+- **Purpose**: Libraries for technical analysis of financial markets.
+- **Usage**: Used to calculate technical indicators like RSI, Moving Averages, and Bollinger Bands.
+
+## 📊 Visualizations
+
+### 1. **Stock Price Trend (Actual vs Predicted)**:
+   - A line plot showing the actual stock prices compared to the predicted stock prices from the LSTM model.
+
+### 2. **Bollinger Bands**:
+   - Upper and lower bands surrounding the stock price, showing periods of high or low volatility.
+
+### 3. **RSI (Relative Strength Index)**:
+   - A momentum oscillator that helps identify overbought and oversold conditions.
+
+### 4. **Moving Averages**:
+   - Plots the short-term and long-term moving averages, allowing the identification of trends and reversals in the stock price.
+
+---
+
+Feel free to ask for more clarifications or any modifications you need in the README file!
